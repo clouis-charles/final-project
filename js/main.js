@@ -19,14 +19,14 @@ var enemy_frames = [];
 
 function setup() {
 createCanvas(800, 400);
-    player_sprite = createSprite(300, 200, 10, 10);
+ player_sprite = createSprite(300, 200, 10, 10);
  enemy_sprite = createSprite(random(width), random(height), 10, 10);
   
 } 
 
 function draw() {
 
- background(255);
+background(255);
 
 drawSprites();
 
