@@ -32,11 +32,12 @@ function draw() {
 background(255);
 //player movement
   if (keyIsDown(LEFT_ARROW)){ 
-  X-=5;
+  player_sprite.setSpeed(3, 180);
+}else if (keyIsDown(RIGHT_ARROW)){
+  player_sprite.setSpeed(3, 0);
+}  else{
+    player_sprite.setSpeed(0, 0);
 }
-  if (keyIsDown(RIGHT_ARROW)){
-  x+=5;
-}  
 clear();
 drawSprites();
 
