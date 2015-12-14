@@ -9,6 +9,9 @@ var player_sprite;
 var enemy_stand; 
 var enemy_explode; 
 var enemy_sprite;
+var x = 100 
+
+
 
 var player_frames = []; 
 
@@ -19,7 +22,7 @@ var enemy_frames = [];
 
 function setup() {
 createCanvas(800, 400);
- player_sprite = createSprite(300, 200, 10, 10);
+ player_sprite = createSprite(x, 200, 10, 10);
  enemy_sprite = createSprite(random(width), random(height), 10, 10);
   
 } 
@@ -27,7 +30,14 @@ createCanvas(800, 400);
 function draw() {
 
 background(255);
-
+//player movement
+  if (keyIsDown(LEFT_ARROW)){ 
+  X-=5;
+}
+  if (keyIsDown(RIGHT_ARROW)){
+  x+=5;
+}  
+clear();
 drawSprites();
 
 
