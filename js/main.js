@@ -22,8 +22,8 @@ var enemy_frames = [];
 
 function setup() {
 createCanvas(800, 400); 
- player_sprite = createSprite(x, 200, 10, 10);
- enemy_sprite = createSprite(x, 750, 10, 10); 
+ player_sprite = createSprite(x, 300, 10, 10);
+ enemy_sprite = createSprite(700, 300, 10, 10); 
 
 } 
 
@@ -46,7 +46,8 @@ background(0);
      bullet.setSpeed(10+player.getSpeed());
      bullet.life = 30; 
      bullet.add(bullet);
-      }
+      } 
+   
 clear();
 drawSprites();
 
@@ -54,8 +55,5 @@ drawSprites();
 }
 
 function mousePressed(){
-
 enemy_sprite = createSprite(random(width), random(height), 10, 10);
-
-
 }
