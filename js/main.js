@@ -1,5 +1,6 @@
-// Sprite sheets  
-var bullets;
+// Sprite sheets and global variables  
+var bullets; 
+var enemy;
 var player_sprite_sheet; 
 var enemy_sprite_sheet; 
 var player_walk; 
@@ -24,6 +25,7 @@ function setup() {
 createCanvas(800, 400); 
  player_sprite = createSprite(x, 300, 30, 30);
  enemy_sprite = createSprite(700, 300, 30, 30); 
+ enemy = new Group();
  bullets = new Group(); 
 
 } 
@@ -55,16 +57,19 @@ background(0);
 direction = 180; 
 enemy_sprite.setSpeed(2, direction); 
 //collider 
-enemy_sprite.collide(player_sprite);
+enemy_sprite.collide(player_sprite);  
+bullets.overlap(enemy_sprite, enemyHit);
+
    
 clear();
 drawSprites();
 
 
 }
-//function enemyHit(enemy_sprite, bullet){
-
-//}
+function enemyHit(bullet, enemy_sprite) {
+enemy_sprite.remove();
+    
+}
 
 
 
