@@ -46,7 +46,7 @@ background(0);
 //bullet control
  if(keyWentDown("X")) 
       { 
-     var bullet = createSprite(player_sprite.position.x, player_sprite.position.y, 5, 5);
+     var bullet = createSprite(player_sprite.position.x, player_sprite.position.y, 10, 10);
      bullet.setSpeed(10+player_sprite.getSpeed(), player_sprite.rotation);
      bullet.life = 30;  
      bullets.add(bullet);
