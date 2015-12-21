@@ -22,8 +22,8 @@ var enemy_frames = [];
 
 function setup() {
 createCanvas(800, 400); 
- player_sprite = createSprite(x, 300, 10, 10);
- enemy_sprite = createSprite(700, 300, 10, 10); 
+ player_sprite = createSprite(x, 300, 30, 30);
+ enemy_sprite = createSprite(700, 300, 30, 30); 
  bullets = new Group(); 
 
 } 
@@ -62,9 +62,10 @@ drawSprites();
 
 
 }
-function enemyHit(enemy_sprite, bullet){
+//function enemyHit(enemy_sprite, bullet){
+
+//}
 
 
 
-}
 
