@@ -23,10 +23,11 @@ var enemy_frames = [];
 
 function setup() {
 createCanvas(800, 400); 
+    enemy = new Group();
+ bullets = new Group(); 
  player_sprite = createSprite(x, 300, 30, 30);
  enemy_sprite = createSprite(700, 300, 30, 30); 
- enemy = new Group();
- bullets = new Group(); 
+ enemy.add(enemy_sprite);
 
 } 
 
@@ -58,9 +59,9 @@ direction = 180;
 enemy_sprite.setSpeed(2, direction); 
 //collider 
 enemy_sprite.collide(player_sprite);  
-bullets.overlap(enemy_sprite, enemyHit);
-
-   
+//bullets.overlap(enemy_sprite, enemyHit);
+bullets.overlap(enemy,enemyHit);
+player_sprite.overlap(enemy, playerHit)   
 clear();
 drawSprites();
 
@@ -68,9 +69,22 @@ drawSprites();
 }
 function enemyHit(bullet, enemy_sprite) {
 enemy_sprite.remove();
+    //spawn new enemy
+    setTimeout(makeEnemy,500);
     
 }
 
+function makeEnemy(){
+ //make the new enemy   
+    var enemy_sprite = createSprite(700, 300, 30, 30); 
+    enemy_sprite.setSpeed(random(2,20), direction);
+    enemy.add(enemy_sprite);
+}
+
+function playerHit(player_sprite, enemy){ 
 
 
+
+
+}
 
