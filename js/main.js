@@ -11,7 +11,7 @@ var enemy_explode;
 var enemy_sprite;
 var x = 100 
 var bullet_sprite;
-
+var direction = 180;
 
 var player_frames = []; 
 
@@ -46,7 +46,10 @@ background(0);
      bullet.setSpeed(10+player.getSpeed());
      bullet.life = 30; 
      bullet.add(bullet);
-      } 
+      }  
+//enemy movement 
+direction +=1; 
+enemy_sprite.setSpeed(2, direction)
    
 clear();
 drawSprites();
