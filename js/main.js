@@ -13,7 +13,7 @@ var enemy_sprite;
 var x = 100 
 var bullet_sprite;
 var direction = 0;
-
+var gameOver;
 var player_frames = []; 
 
 
@@ -23,8 +23,10 @@ var enemy_frames = [];
 
 function setup() {
 createCanvas(800, 400); 
-    enemy = new Group();
- bullets = new Group(); 
+enemy = new Group();
+bullets = new Group();  
+gameOver = true; 
+updateSprites(false);
  player_sprite = createSprite(x, 300, 30, 30);
  enemy_sprite = createSprite(700, 300, 30, 30); 
  enemy.add(enemy_sprite);
@@ -33,6 +35,12 @@ createCanvas(800, 400);
 
 function draw() {
 
+if(gameOver && keyWentDown("X"))
+    newGame(); 
+if(!gameOver) { 
+   if(player_sprite.overlap(enemy, playerHit)) 
+       playerHit();
+}
 background(0); 
     fill(255); 
     
@@ -82,9 +90,18 @@ function makeEnemy(){
 }
 
 function playerHit(player_sprite, enemy){ 
+player_sprite.remove();
+updateSprites(false);
+gameOver = true;
+} 
 
-
-
+function newGame() { 
+    enemy.removeSprites();
+    gameOver = false;
+    updateSprites(true);  
+}
+function mousePressed() { 
+  if(gameOver) 
+      newGame();
 
 }
-
